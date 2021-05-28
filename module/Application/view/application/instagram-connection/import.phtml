@@ -1,0 +1,15 @@
+<?php
+if ($this->message === 'done')
+{
+    echo "<h3>Permissions and pictures received from Instagram!</h3><br/><p><a href='/'>Go see your pictures now.</a></p>";
+}
+elseif ($this->message === 'error')
+{
+    echo "<h3>An error occured when talking to Instagram.</h3>";
+}
+else
+{
+    echo "<h3>Something went quite wrong.</h3>";
+}
+?>
+

@@ -1,0 +1,171 @@
+SECOND PAGE:
+http://comp4669.garytong.ca/get/pictures/?start=8&count=8
+
+RESPONSE:
+[
+  {
+    "id": "9",
+    "authorName": "John Smith",
+    "pictureTitle": "ninth title",
+    "pictureDescription": "Nullam volutpat, odio non vulputate maximus, enim metus tincidunt dui",
+    "filename": "7787767022.jpg"
+  },
+  {
+    "id": "10",
+    "authorName": " ",
+    "pictureTitle": "tenth title",
+    "pictureDescription": "Nulla eget nisi lacus",
+    "filename": "9191892931.jpg"
+  },
+  {
+    "id": "11",
+    "authorName": " ",
+    "pictureTitle": "eleventh title",
+    "pictureDescription": "Nullam erat orci, tempus ac egestas sed, sagittis eget augue. Integer elementum massa felis, vitae tristique mauris accumsan in.",
+    "filename": "9655789441.jpg"
+  }
+]
+
+----------------------
+
+THIRD PAGE:
+http://comp4669.garytong.ca/get/pictures/?start=16&count=16
+
+RESPONSE:
+[]
+
+------------------------
+FIRST PAGE:
+http://comp4669.garytong.ca/get/pictures
+(NO PARAMETERS!)
+
+RESPONSE:
+[
+  {
+    "id": "1",
+    "authorName": "Gary Tong",
+    "pictureTitle": "first title",
+    "pictureDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "filename": "1505465478.jpg"
+  },
+  {
+    "id": "2",
+    "authorName": "Gary Tong",
+    "pictureTitle": "second title",
+    "pictureDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "filename": "1800180867.jpg"
+  },
+  {
+    "id": "3",
+    "authorName": "Gary Tong",
+    "pictureTitle": "third title",
+    "pictureDescription": " Aliquam nec dictum nulla. Pellentesque dignissim eleifend nulla.",
+    "filename": "4961840325.jpg"
+  },
+  {
+    "id": "4",
+    "authorName": "Jane Doe",
+    "pictureTitle": "fourth title",
+    "pictureDescription": "Phasellus non eros et tellus euismod mollis, adipiscing elit.",
+    "filename": "5065071803.jpg"
+  },
+  {
+    "id": "5",
+    "authorName": "John Smith",
+    "pictureTitle": "fifth title",
+    "pictureDescription": "Nunc dignissim mauris sit amet vulputate sollicitudin.",
+    "filename": "5665772016.jpg"
+  },
+  {
+    "id": "6",
+    "authorName": "John Smith",
+    "pictureTitle": "sixth title",
+    "pictureDescription": "Vivamus eget mi odio, consectetur.",
+    "filename": "6214183289.jpg"
+  },
+  {
+    "id": "7",
+    "authorName": "Jane Doe",
+    "pictureTitle": "seventh title",
+    "pictureDescription": "Fusce rhoncus hendrerit odio, ac egestas erat imperdiet.",
+    "filename": "6563995309.jpg"
+  },
+  {
+    "id": "8",
+    "authorName": "Jane Doe",
+    "pictureTitle": "eighth title",
+    "pictureDescription": " Aliquam viverra nibh a eleifend lacinia. Phasellus vitae venenatis leo. Nullam iaculis fringilla massa vel pharetra.",
+    "filename": "6897469293.jpg"
+  }
+]
+
+-------------------------------------------
+
+FIRST PICTURE:
+http://comp4669.garytong.ca/get/comments?pictures_id=1
+
+RESPONSE:
+{
+  "comments": [
+    {
+      "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec dictum nulla. Pellentesque dignissim eleifend nulla ac ornare. Phasellus a justo orci."
+    },
+    {
+      "comment": "Ut nisi ante, luctus eget sagittis id, accumsan ac sapien. Phasellus non eros et tellus euismod mollis. Pellentesque a tellus quis velit congue feugiat. Cras mollis metus eu tincidunt venenatis. Aliquam pharetra ligula ut feugiat ultricies."
+    },
+    {
+      "comment": "Phasellus vel orci nulla. Nunc dignissim mauris sit amet vulputate sollicitudin."
+    }
+  ]
+}
+
+---------------------
+
+EIGHTH PICTURE NO COMMENT
+
+{"comments":[]}
+
+----------------------------
+
+SAMPLE BUILT JSON OBJECTS THAT WORK:
+
+    public function picturesAction()
+    {
+        $data = [['id'                 => 9,
+                  'authorName'         => 'John Smith',
+                  'pictureTitle'       => 'ninth title',
+                  'pictureDescription' => 'Nullam volutpat, odio non vulputate maximus, enim metus tincidunt dui', 
+                  'filename'           => '7787767022.jpg']]
+        ;
+        return new JsonModel($data);
+    }
+
+    public function commentsAction()
+    {
+        $data = ['comments' => [['comment'=>'Vivamus eget mi odio. Etiam sit amet velit ultricies, porttitor eros et, volutpat tortor. Nam diam dui, pellentesque ut neque quis, luctus egestas arcu. Sed lacinia est id mauris maximus, in mollis purus commodo. Donec sagittis ipsum sed augue commodo interdum. Vestibulum id est ex. Curabitur pharetra nulla vel dui scelerisque pharetra. Sed tincidunt tristique enim, sit amet fermentum tellus vulputate in. Nullam eget dignissim nisl. Nam suscipit et elit vel lobortis.'],
+                               ]]
+        ;
+        return new JsonModel($data);
+    }
+    
+------------------------
+    
+SEARCH
+
+http://comp4669.garytong.ca/search?word=ond
+
+RESPONSE:
+[
+  {
+    "id": "2",
+    "authorName": "Gary Tong",
+    "pictureTitle": "second title",
+    "pictureDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "filename": "1800180867.jpg"
+  }
+]
+
+http://comp4669.garytong.ca/search?word=
+
+RESPONSE:
+[]

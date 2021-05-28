@@ -1,0 +1,27 @@
+<?php
+/**
+ * Local Configuration Override
+ *
+ * This configuration override file is for overriding environment-specific and
+ * security-sensitive configuration information. Copy this file without the
+ * .dist extension at the end and populate values as needed.
+ *
+ * @NOTE: This file is ignored from Git by default with the .gitignore included
+ * in ZendSkeletonApplication. This is a good practice, as it prevents sensitive
+ * credentials from accidentally being committed into version control.
+ */
+
+return [
+    'db_credentials' => [
+        'user' => 'INSERT_USER_HERE',
+        'password' => 'INSERT_PASSWORD_HERE',
+        'database' => 'INSERT_DATABASE_NAME_HERE',
+    ],
+    'instagram_client' => [
+        'client_id'     => 'INSERT_CLIENT_ID_HERE',
+        'client_secret' => 'INSERT_CLIENT_SECRET_HERE',
+        'redirect_uri'  => 'http://localhost:8000/import',
+        'scope'         => ['public_content'],
+    ],
+];
+
